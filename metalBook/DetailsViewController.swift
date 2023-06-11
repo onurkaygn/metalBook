@@ -26,7 +26,8 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         groupNameLabel.text = metalGroup?.name ?? ""
         groupImage.image = metalGroup?.image
-        membersLabel.text = metalGroup?.members ?? ""
-        mostPopularSongLabel.text = metalGroup?.popularSong ?? ""
+        membersLabel.text = "Members: \(metalGroup?.members ?? "")"
+        mostPopularSongLabel.text = "Most Popualar Song: \(metalGroup?.popularSong ?? "")"
+        establishedLabel.text = "Established Date: \(metalGroup?.established ?? "")"
     }
 }

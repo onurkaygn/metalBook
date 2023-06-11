@@ -13,9 +13,11 @@ class GroupsViewController: UIViewController {
     
     var allGroupsString = [MetalGroup]()
     
-    let metallica = MetalGroup(id:0, name: "Metallica", members: "James Hetfield, Kirk Hammet, Lars Ulrich, Robert Trujillo", established: 1981,image:UIImage(named: "metallica")!,popularSong: "Enter Sandman")
+    let metallica = MetalGroup(id:0, name: "Metallica", members: "James Hetfield, Kirk Hammet, Lars Ulrich, Robert Trujillo", established: "1981",image:UIImage(named: "metallica")!,popularSong: "Enter Sandman")
     
-    let rammstein = MetalGroup(id:1, name: "Rammstein", members: "", established: 1994, image: UIImage(named: "rammstein")!, popularSong:"Du Hast")
+    let rammstein = MetalGroup(id:1, name: "Rammstein", members: "Till Lindemann, Richard Kruspe, Christian Lorenz, Christopher Schneider, Oliver Riedel, Paul Landers", established: "1994", image: UIImage(named: "rammstein")!, popularSong:"Du Hast")
+    
+
     
     var selectedGroup: MetalGroup?
     
