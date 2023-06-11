@@ -20,22 +20,13 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var establishedLabel: UILabel!
     
-    var destinationGroupName = ""
-    var destinationGroupImage = UIImage(named: "metallica")
-    var destinationMembersLabel = ""
-    var destinationMostPopularSongLabel = ""
-    var destinationEstablishedLabel = 0
+    var metalGroup: MetalGroup?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        groupNameLabel.text = destinationGroupName
-        groupImage.image = destinationGroupImage
-        membersLabel.text = destinationMembersLabel
-        mostPopularSongLabel.text = destinationMostPopularSongLabel
-        establishedLabel.text = "\(destinationEstablishedLabel)"
-       
+        groupNameLabel.text = metalGroup?.name ?? ""
+        groupImage.image = metalGroup?.image
+        membersLabel.text = metalGroup?.members ?? ""
+        mostPopularSongLabel.text = metalGroup?.popularSong ?? ""
     }
-    
-
-
 }

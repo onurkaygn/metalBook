@@ -17,6 +17,8 @@ class GroupsViewController: UIViewController {
     
     let rammstein = MetalGroup(id:1, name: "Rammstein", members: "", established: 1994, image: UIImage(named: "rammstein")!, popularSong:"Du Hast")
     
+    var selectedGroup: MetalGroup?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,22 +46,14 @@ extension GroupsViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Clicked group is: \(allGroupsString[indexPath.row].name)")
+        selectedGroup = allGroupsString[indexPath.row]
+        performSegue(withIdentifier: "toDetailsVC", sender: selectedGroup)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailsVC" {
-            let destinationVC = segue.destination as! DetailsViewController
-            
-            if allGroupsString[0].id == 0{
-                destinationVC.destinationGroupName = metallica.name
-                destinationVC.destinationEstablishedLabel = metallica.established
-                destinationVC.destinationMostPopularSongLabel = metallica.popularSong
-                destinationVC.destinationGroupImage = metallica.image
-                destinationVC.destinationMembersLabel = String(metallica.members)
-            }
+        if let vc = segue.destination as? DetailsViewController, let selectedGroup = sender as? MetalGroup {
+            vc.metalGroup = selectedGroup
         }
     }
-        
 }
 
